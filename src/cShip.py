@@ -21,28 +21,10 @@
 
 # is_worth_it(...)
 
+# Esta es la sintaxis para desarrollar una clase hija
+
 # Las clases Cargo y Cruise son hijas de Ship
 class cShip:
 	def __init__(self, draft, crew):
 		self.draft = draft
 		self.crew = crew
-
-# Esta es la sintaxis para desarrollar una clase hija
-class cCargo(cShip):
-	def __init__(self, cargo, quality, draft, crew):
-        # Usando super(), no es necesario usar el nombre del elemento padre, 
-	    # sino que automaticamente heredará los metodos y propiedades de la clase padre
-		super().__init__(draft, crew)
-		
-		self.cargo = cargo
-		self.quality = quality
-		# Completar herencia
-        
-
-class cCruise(cShip):
-	def __init__(self, passengers, draft, crew):
-		# Idem que en cCargo para usar super()
-		super().__init__(draft, crew)
-		
-		self.passengers = passengers
-		# Completar herencia
