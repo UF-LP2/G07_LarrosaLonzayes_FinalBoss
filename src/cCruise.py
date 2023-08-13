@@ -6,4 +6,12 @@ class cCruise(cShip):
 		super().__init__(draft, crew)
 		
 		self.passengers = passengers
-		# Completar herencia
+		
+	def calcularPeso(self):
+		total = self.draft - self.crew * 1.5
+		
+		# Cada pasajero agrega 2.25
+		aux = self.passengers * 2.25
+
+		totel -= aux
+		return aux

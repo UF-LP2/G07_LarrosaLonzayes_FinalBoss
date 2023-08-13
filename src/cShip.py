@@ -28,3 +28,8 @@ class cShip:
 	def __init__(self, draft, crew):
 		self.draft = draft
 		self.crew = crew
+		
+	# Metodo polimorfico
+	def calcularPeso(self):
+		pesoAux = self.draft - self.crew*1.5
+		return pesoAux
