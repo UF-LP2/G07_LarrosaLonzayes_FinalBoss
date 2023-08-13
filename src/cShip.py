@@ -18,12 +18,10 @@
 # Luego de restar el peso de tripulacion (y de pasajeros en los cruceros), si sigue siendo >=20, hay que saquear
 
 # Agrega este metodo, para decidir si el barco merece ser saqueado:
-
 # is_worth_it(...)
 
-# Esta es la sintaxis para desarrollar una clase hija
-
 # Las clases Cargo y Cruise son hijas de Ship
+
 class cShip:
 	def __init__(self, draft, crew):
 		self.draft = draft
@@ -33,3 +31,12 @@ class cShip:
 	def calcularPeso(self):
 		pesoAux = self.draft - self.crew*1.5
 		return pesoAux
+	
+	# True == Saqueable
+	# False == ni te molestes
+	def is_worth_it(self):
+		# DUDA -> Toma el calcularPeso() de cShip, o de la clase hija donde se use?
+		if self.calcularPeso() >= 20:
+			return True
+		else:
+			return False
