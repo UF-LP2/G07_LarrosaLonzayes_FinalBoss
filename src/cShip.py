@@ -29,14 +29,15 @@ class cShip:
 		
 	# Metodo polimorfico
 	def calcularPeso(self):
-		pesoAux = self.draft - self.crew*1.5
+		pesoAux = float(self.draft - self.crew*1.5)
 		return pesoAux
 	
 	# True == Saqueable
 	# False == ni te molestes
 	def is_worth_it(self):
 		# DUDA -> Toma el calcularPeso() de cShip, o de la clase hija donde se use?
-		if self.calcularPeso() >= 20:
+		# Por las dudas la definimos tambien en todas las clases hijas
+		if self.calcularPeso() >= 20.0:
 			return True
 		else:
 			return False

@@ -8,10 +8,16 @@ class cCruise(cShip):
 		self.passengers = passengers
 		
 	def calcularPeso(self):
-		total = self.draft - self.crew * 1.5
+		total = float(self.draft - self.crew * 1.5)
 		
 		# Cada pasajero agrega 2.25
-		aux = self.passengers * 2.25
+		aux = float(self.passengers * 2.25)
 
-		totel -= aux
+		total -= aux
 		return aux
+	
+	def is_worth_it(self):
+		if self.calcularPeso() >= 20:
+			return True
+		else:
+			return False

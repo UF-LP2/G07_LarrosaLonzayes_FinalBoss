@@ -9,17 +9,21 @@ class cCargo(cShip):
 		self.quality = quality
 
 	def calcularPeso(self):
-		total = self.draft - self.crew*1.5
-		aux = 0
+		total = float(self.draft - self.crew*1.5)
 
 		if self.quality == 1:
-			aux -= 3.5
+			total -= float(self.cargo*3.5)
 		elif self.quality == 0.5:
-			aux -= 2
+			total -= float(self.cargo*2)
 		elif self.quality == 0.25:
-			aux -= 0.5
+			total -= float(self.cargo*0.5)
 		else:
 			raise ValueError("Calidad de carga inválida")
 
-		total -= (self.cargo * aux)
 		return total
+	
+	def is_worth_it(self):
+		if self.calcularPeso() >= 20:
+			return True
+		else:
+			return False
