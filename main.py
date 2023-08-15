@@ -53,7 +53,7 @@ def main() -> None:
 			# No estamos teniendo en cuenta los barcos mal puestos en la lista, solo los contamos
 			# EJ: alguno que tenga 2000,1000,,1 por ejemplo
 		
-		print("Hay un total de %d barcos registrados," % cShip.cantidad, "con %d mal pasados y sin registrar" % cant)
+		# print("Hay un total de %d barcos registrados," % cShip.cantidad, "con %d mal pasados y sin registrar" % cant)
 
 	# Al ser listaBarcos como un listado de C++,
 	# hay que usar len() para saber la cantidad de items que posee, tal que for i in range(len(listaBarcos)):
