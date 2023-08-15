@@ -25,9 +25,9 @@ class cShip:
 		# NOTA -> El print es solo para ver como estan cargados los datos de todos los barcos genericos
 		# En la entrega lo borramos (o comentamos)
 		aux = float(self.draft - self.crew*1.5)
-		print("Barco, Draft = %.2f," % self.draft, "Crew =  %.2f, " % self.crew, "Botin = %.2f" % aux)
+		# print("Barco, Draft = %.2f," % self.draft, "Crew =  %.2f, " % self.crew, "Botin = %.2f" % aux)
 		
 		if (aux < 20.0):
-			raise ValueError("Insaqueable como banco argentino")
+			raise ValueError("I N S A Q U E A B L E")
 		
 		return aux

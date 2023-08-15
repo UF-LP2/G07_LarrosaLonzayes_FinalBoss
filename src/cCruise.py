@@ -18,9 +18,11 @@ class cCruise(cShip):
 		# NOTA -> El print es solo para ver como estan cargados los datos de todos los cruceros
 		# En la entrega lo borramos (o comentamos)
 		aux = self.calcularPeso()
-		print("Crucero, Draft = %.2f," % self.draft, "Crew =  %.2f," % self.crew ,"Passengers =  %.2f, " % self.passengers, "Botin = %.2f" % aux)
+		# print("Crucero, Draft = %.2f," % self.draft, "Crew =  %.2f," % self.crew ,"Passengers =  %.2f, " % self.passengers, "Botin = %.2f" % aux)
 
-		if (aux < 20.0):
-			raise ValueError("Insaqueable como banco argentino")
+		if (aux >= 0) and (aux < 20.0):
+			raise ValueError("I N S A Q U E A B L E")
+		elif (aux < 0):
+			raise ValueError("BOTIN INVALIDO COMO YO")
 		
 		return aux

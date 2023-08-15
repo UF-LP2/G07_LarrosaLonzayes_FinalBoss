@@ -50,12 +50,13 @@ def main() -> None:
 	for i in range(len(listaBarcos)):
 		# NOTA y DUDA -> Siempre tira exception, no importa el barco, POR QUE?
 		# corregir y aprender como debbugear
+		print("Numero %d" % (i+1))
 		try:
 			auxBarco = listaBarcos[i]
 			botin = float(auxBarco.is_worth_it())
-			print("El N°%d es S A Q U E A B L E, "  % i+1, "Botin = %.2f" % botin)
-		except Exception:
-			print("I N S A Q U E A B L E")
+			print("S A Q U E A B L E, " , "Botin = %.2f" % botin)
+		except Exception as e:
+			print(str(e))
 
 
 if __name__ == "__main__":
