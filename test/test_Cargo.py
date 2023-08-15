@@ -1,6 +1,6 @@
 import pytest
 
-from src.Cargo import Cargo
+from src.ships import Cargo
 
 # Caso de cargo saqueable
 def testCargo1():

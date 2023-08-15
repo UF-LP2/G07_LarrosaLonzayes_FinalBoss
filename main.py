@@ -1,8 +1,8 @@
 import csv
 
-from src.Ship import Ship
-from src.Cargo import Cargo
-from src.Cruise import Cruise
+from src.ships import Ship
+from src.ships import Cargo
+from src.ships import Cruise
 
 # Por como armamos el programa, nos conviene definir una funcion booleana que identifique si su parametro es un numero o no
 # En un try except casteamos 'n' a float, en caso de que NO sea un numero, tirará una exception sobre el tipo de dato y retornara false
@@ -57,14 +57,14 @@ def main() -> None:
 
 	# Al ser listaBarcos como un listado de C++,
 	# hay que usar len() para saber la cantidad de items que posee, tal que 
-	# for i in range(len(listaBarcos)):
-	# 	print("Numero %d" % (i+1))
-	# 	try:
-	# 		auxBarco = listaBarcos[i]
-	# 		botin = float(auxBarco.is_worth_it())
-	# 		print("S A Q U E A B L E, " , "Botin = %.2f" % botin)
-	# 	except Exception as e:
-	# 		print(str(e))
+	for i in range(len(listaBarcos)):
+		print("Numero %d" % (i+1))
+		try:
+			auxBarco = listaBarcos[i]
+			botin = float(auxBarco.is_worth_it())
+			print("S A Q U E A B L E, " , "Botin = %.2f" % botin)
+		except Exception as e:
+			print(str(e))
 
 
 if __name__ == "__main__":

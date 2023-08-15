@@ -1,6 +1,6 @@
 import pytest
 
-from src.Ship import Ship
+from src.ships import Ship
 
 # Caso de barco generico saqueable
 def testShip1():
