@@ -8,12 +8,12 @@ class cShip:
 		if draft != "":
 			self.draft = float(draft)
 		else:
-			self.draft = draft
+			raise ValueError("Esta en blanco")
 		
 		if crew != "":
 			self.crew = float(crew)
 		else:
-			self.crew = crew
+			raise ValueError("Esta en blanco")
 		
 		cShip.cantidad += 1
 

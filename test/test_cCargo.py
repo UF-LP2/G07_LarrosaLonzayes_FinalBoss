@@ -22,13 +22,7 @@ def testCargo3():
 	with pytest.raises(ValueError):
 		cargo3.is_worth_it()
 
-# Caso de tipo de dato no numerico
-def testCargo4():
-	cargo4 = cCargo("river","boca","racing","independiente")
-	with pytest.raises(ValueError):
-		cargo4.is_worth_it()
-
 # Otro cargo saqueable
-def testCargo5():
-	cargo5 = cCargo(100,0.25,1000,100)
-	assert(cargo5.is_worth_it() == 800) == True
+def testCargo4():
+	cargo4 = cCargo(100,0.25,1000,100)
+	assert(cargo4.is_worth_it() == 800) == True

@@ -11,12 +11,12 @@ class cCargo(cShip):
 		if cargo != "":
 			self.cargo = float(cargo)
 		else:
-			self.cargo = cargo
+			raise ValueError("Esta en blanco")
 		
 		if quality != "":
 			self.quality = float(quality)
 		else:
-			self.crew = quality
+			raise ValueError("Esta en blanco")
 
 	def calcularPeso(self):
 		total = float()

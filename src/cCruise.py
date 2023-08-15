@@ -8,7 +8,7 @@ class cCruise(cShip):
 		if passengers != "":
 			self.passengers = float(passengers)
 		else:
-			self.passengers = passengers
+			raise ValueError("Esta en blanco")
 		
 		
 	def calcularPeso(self):

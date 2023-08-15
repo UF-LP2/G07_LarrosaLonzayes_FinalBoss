@@ -56,15 +56,15 @@ def main() -> None:
 		# print("Hay un total de %d barcos registrados," % cShip.cantidad, "con %d mal pasados y sin registrar" % cant)
 
 	# Al ser listaBarcos como un listado de C++,
-	# hay que usar len() para saber la cantidad de items que posee, tal que for i in range(len(listaBarcos)):
-
-		# print("Numero %d" % (i+1))
-		# try:
-			# auxBarco = listaBarcos[i]
-			# botin = float(auxBarco.is_worth_it())
-			# print("S A Q U E A B L E, " , "Botin = %.2f" % botin)
-		# except Exception as e:
-			# print(str(e))
+	# hay que usar len() para saber la cantidad de items que posee, tal que 
+	for i in range(len(listaBarcos)):
+		print("Numero %d" % (i+1))
+		try:
+			auxBarco = listaBarcos[i]
+			botin = float(auxBarco.is_worth_it())
+			print("S A Q U E A B L E, " , "Botin = %.2f" % botin)
+		except Exception as e:
+			print(str(e))
 
 
 if __name__ == "__main__":
