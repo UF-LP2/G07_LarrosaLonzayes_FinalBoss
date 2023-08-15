@@ -5,20 +5,22 @@ class cCruise(cShip):
 		# Idem que en cCargo para usar super()
 		super().__init__(draft, crew)
 		
-		self.passengers = passengers
+		if passengers != "":
+			self.passengers = float(passengers)
+		else:
+			self.passengers = passengers
+		
 		
 	def calcularPeso(self):
-		total = float(self.draft - self.crew * 1.5)
-		
-		# Cada pasajero agrega 2.25
-		aux = float(self.passengers * 2.25)
-
-		total -= aux
-		return total
+		return float(self.draft - self.crew*1.5 - self.passengers*2.25)
 	
 	def is_worth_it(self):
-		botin = self.calcularPeso()
-		if botin >= 20:
-			return botin
-		else:
+		# NOTA -> El print es solo para ver como estan cargados los datos de todos los cruceros
+		# En la entrega lo borramos (o comentamos)
+		aux = self.calcularPeso()
+		print("Crucero, Draft = %.2f," % self.draft, "Crew =  %.2f," % self.crew ,"Passengers =  %.2f, " % self.passengers, "Botin = %.2f" % aux)
+
+		if (aux < 20.0):
 			raise ValueError("Insaqueable como banco argentino")
+		
+		return aux

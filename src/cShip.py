@@ -1,35 +1,33 @@
-# Desarrollo del trabajo
-
-# Se crea un nuevo objeto de barco basado en las observaciones de la tripulacion
-# Barco1 = Ship(15, 10)
-
-# Si ven el ingreso de un cargo al puerto, crearán un nuevo objeto de cargo
-# Maersk = Cargo(15, 10)
-
-# Si ven el ingreso de un crucero al puerto, crearán un nuevo objeto de crucero
-# Titanic = Cruise(34, 15, 10)
-
 class cShip:
-	# NOTA -> podriamos hacer un static, para la cantidad total de barcos
-	# Serviria para verificar si hace las cosas bien con el .csv
-	cantidad = int(0)
+
+	# NOTA -> hicimos un static, para la cantidad total de barcos
+	# Serviria para verificar si el programa hace las cosas bien con el .csv
+
+	cantidad = 0
 	def __init__(self, draft, crew):
-		self.draft = draft
-		self.crew = crew
-		cShip.cantidad += 1
+		if draft != "":
+			self.draft = float(draft)
+		else:
+			self.draft = draft
 		
+		if crew != "":
+			self.crew = float(crew)
+		else:
+			self.crew = crew
+		
+		cShip.cantidad += 1
+
 	# Metodo polimorfico
 	def calcularPeso(self):
-		total = float(self.draft - self.crew*1.5)
-		return total
+		return float(self.draft - self.crew*1.5)
 	
-	# True == Saqueable
-	# False == ni te molestes
 	def is_worth_it(self):
-		# DUDA -> Toma el calcularPeso() de cShip, o de la clase hija donde se use?
-		# Por las dudas la definimos tambien en todas las clases hijas
-		botin = self.calcularPeso()
-		if botin >= 20.0:
-			return botin
-		else:
+		# NOTA -> El print es solo para ver como estan cargados los datos de todos los barcos genericos
+		# En la entrega lo borramos (o comentamos)
+		aux = float(self.draft - self.crew*1.5)
+		print("Barco, Draft = %.2f," % self.draft, "Crew =  %.2f, " % self.crew, "Botin = %.2f" % aux)
+		
+		if (aux < 20.0):
 			raise ValueError("Insaqueable como banco argentino")
+		
+		return aux
