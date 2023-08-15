@@ -1,4 +1,4 @@
-class cShip:
+class Ship:
 
 	# NOTA -> hicimos un static, para la cantidad total de barcos
 	# Serviria para verificar si el programa hace las cosas bien con el .csv
@@ -15,7 +15,7 @@ class cShip:
 		else:
 			raise ValueError("Esta en blanco")
 		
-		cShip.cantidad += 1
+		Ship.cantidad += 1
 
 	# Metodo polimorfico
 	def calcularPeso(self):

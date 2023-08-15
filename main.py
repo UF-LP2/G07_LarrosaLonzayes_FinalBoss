@@ -1,8 +1,8 @@
 import csv
 
-from src.cShip import cShip
-from src.cCargo import cCargo
-from src.cCruise import cCruise
+from src.Ship import Ship
+from src.Cargo import Cargo
+from src.Cruise import Cruise
 
 # Por como armamos el programa, nos conviene definir una funcion booleana que identifique si su parametro es un numero o no
 # En un try except casteamos 'n' a float, en caso de que NO sea un numero, tirará una exception sobre el tipo de dato y retornara false
@@ -35,17 +35,17 @@ def main() -> None:
 			if row[2] == "" and row[3] == "" :
 				if esNumero(row[0]) and esNumero(row[1]):
 					# Como el try except ya esta hecho en esNumero(), no es necesario desarrollarlo acá
-					barco1 = cShip(row[0], row[1])
+					barco1 = Ship(row[0], row[1])
 					listaBarcos.append(barco1)
 			
 			elif row[2] != "" and row[3] == "" :
 				if esNumero(row[0]) and esNumero(row[1]) and esNumero(row[2]):
-					barco2 = cCruise(row[2], row[0], row[1])
+					barco2 = Cruise(row[2], row[0], row[1])
 					listaBarcos.append(barco2)
 
 			elif row[2] != "" and row[3] != "" :
 				if esNumero(row[0]) and esNumero(row[1]) and esNumero(row[2]) and esNumero(row[3]):
-					barco3 = cCargo(row[2], row[3], row[0], row[1])
+					barco3 = Cargo(row[2], row[3], row[0], row[1])
 					listaBarcos.append(barco3)
 
 			else:
@@ -53,7 +53,7 @@ def main() -> None:
 			# No estamos teniendo en cuenta los barcos mal puestos en la lista, solo los contamos
 			# EJ: alguno que tenga 2000,1000,,1 por ejemplo
 		
-		# print("Hay un total de %d barcos registrados," % cShip.cantidad, "con %d mal pasados y sin registrar" % cant)
+		# print("Hay un total de %d barcos registrados," % Ship.cantidad, "con %d mal pasados y sin registrar" % cant)
 
 	# Al ser listaBarcos como un listado de C++,
 	# hay que usar len() para saber la cantidad de items que posee, tal que 

@@ -1,6 +1,6 @@
-from src.cShip import cShip
+from src.Ship import Ship
 
-class cCargo(cShip):
+class Cargo(Ship):
 	def __init__(self, cargo, quality, draft, crew):
 
 		# Usando super(), no es necesario usar el nombre del elemento padre, 
