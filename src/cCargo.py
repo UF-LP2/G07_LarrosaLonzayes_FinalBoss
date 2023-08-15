@@ -1,4 +1,4 @@
-from cShip import cShip
+from src.cShip import cShip
 
 class cCargo(cShip):
 	def __init__(self, cargo, quality, draft, crew):
@@ -11,6 +11,8 @@ class cCargo(cShip):
 	def calcularPeso(self):
 		total = float(self.draft - self.crew*1.5)
 
+		# DUDA -> hay casos donde hay una calidad definida, pero no hay carga extra
+		# Faltaria chequear en los 3 casos si self.cargo != "" (vacio) ?
 		if self.quality == 1:
 			total -= float(self.cargo*3.5)
 		elif self.quality == 0.5:
@@ -23,7 +25,8 @@ class cCargo(cShip):
 		return total
 	
 	def is_worth_it(self):
-		if self.calcularPeso() >= 20:
-			return True
+		botin = self.calcularPeso()
+		if botin >= 20:
+			return botin
 		else:
-			return False
+			raise ValueError("Insaqueable como banco argentino")

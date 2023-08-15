@@ -1,4 +1,4 @@
-from cShip import cShip
+from src.cShip import cShip
 
 class cCruise(cShip):
 	def __init__(self, passengers, draft, crew):
@@ -14,10 +14,11 @@ class cCruise(cShip):
 		aux = float(self.passengers * 2.25)
 
 		total -= aux
-		return aux
+		return total
 	
 	def is_worth_it(self):
-		if self.calcularPeso() >= 20:
-			return True
+		botin = self.calcularPeso()
+		if botin >= 20:
+			return botin
 		else:
-			return False
+			raise ValueError("Insaqueable como banco argentino")
