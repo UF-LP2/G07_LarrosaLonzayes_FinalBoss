@@ -10,12 +10,18 @@ from src.cCruise import cShip
 # NOTA -> cambiamos el nombre de la primera columna del .csv a "draft" (nos confundia)
 
 def main() -> None:
-	# Imprime 0
-	print(cShip.cantidad) 
-
 	# Ojo con la columna extra que no solo corresponde al cargo, puede también ser pasajeros. 
 	# Fíjarse cuando actúa como cargo y cuando como pasajero. 
 
+	# No hay que especificar la ruta del archivo, y la r es de read, solo lectura, 
+	with open('ships.csv','r') as archivoBarcos:
+		lectorBarcos = csv.reader(archivoBarcos)
+
+		# next() hace avanzar una linea al lector de archivos,
+		# salteando asi los headers
+		next(lectorBarcos)
+
+		
 
 
 
