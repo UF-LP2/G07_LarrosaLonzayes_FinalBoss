@@ -1,6 +1,6 @@
 import pytest
 
-from src.Cruise import Cruise
+from src.ships import Cruise
 
 # Caso de crucero saqueable
 def testCruise1():
