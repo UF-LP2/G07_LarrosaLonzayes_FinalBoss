@@ -1,1 +1,34 @@
-# vacio como yo
+import pytest
+
+from src.cCargo import cCargo
+
+# Caso de cargo saqueable
+def testCargo1():
+	cargo1 = cCargo(100,0.5,2000,1000)
+	# 2000 - 1000*1.5 - 100*2 es igual a 300
+	assert(cargo1.is_worth_it() == 300) == True
+
+# Caso de cargo insaqueable
+def testCargo2():
+	cargo2 = cCargo(1500,1,1250,800)
+	# 1250 - 800*1.5 - 1500*3.5 es igual a -5200
+	with pytest.raises(ValueError):
+		cargo2.is_worth_it()
+
+# Caso de un dato negativo
+def testCargo3():
+	cargo3 = cCargo(-100,1,1100,500)
+	# Al haber un valor negativo, ni nos gastamos en calcular el posible botin
+	with pytest.raises(ValueError):
+		cargo3.is_worth_it()
+
+# Caso de tipo de dato no numerico
+def testCargo4():
+	cargo4 = cCargo("river","boca","racing","independiente")
+	with pytest.raises(ValueError):
+		cargo4.is_worth_it()
+
+# Otro cargo saqueable
+def testCargo5():
+	cargo5 = cCargo(100,0.25,1000,100)
+	assert(cargo5.is_worth_it() == 800) == True

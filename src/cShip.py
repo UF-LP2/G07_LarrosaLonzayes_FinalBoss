@@ -19,6 +19,10 @@ class cShip:
 
 	# Metodo polimorfico
 	def calcularPeso(self):
+		# Si alguno de ambos valores es negativo, hay un error logico importante
+		if self.draft < 0 or self.crew < 0:
+			raise ValueError("Lógica errónea")
+		
 		return float(self.draft - self.crew*1.5)
 	
 	def is_worth_it(self):

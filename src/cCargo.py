@@ -21,16 +21,27 @@ class cCargo(cShip):
 	def calcularPeso(self):
 		total = float()
 
+		if self.draft < 0 or self.crew < 0 or self.cargo < 0 or self.quality < 0:
+			# Si alguno de los 4 valores es negativo, hay un error logico importante
+			raise ValueError("Lógica errónea")
+		
 		# DUDA -> hay casos donde hay una calidad definida, pero no hay carga extra
 		# Faltaria chequear en los 3 casos si self.cargo != "" (vacio) ?
-		if self.quality == 1:
+		if self.quality == 1 and self.cargo != "":
 			aux = 3.5
-		elif self.quality == 0.5:
+		elif self.quality == 0.5 and self.cargo != "":
 			aux = 2
-		elif self.quality == 0.25:
+		elif self.quality == 0.25 and self.cargo != "":
 			aux = 0.5
+		
+		# Si la calidad es distinta a las otras 3, y hay carga registrada,
+		# entonces es un valor invalido
+		elif self.quality != "" and self.cargo != "":
+			raise ValueError("Valor de calidad invalido")
+		
+		# Cualquier otro caso es un error logico (hay calidad valida pero no hay carga registrada por ej)
 		else:
-			raise ValueError("Calidad inválida")
+			raise ValueError("Error Logico")
 
 		return float(self.draft - self.crew*1.5 - self.cargo*aux)
 	
